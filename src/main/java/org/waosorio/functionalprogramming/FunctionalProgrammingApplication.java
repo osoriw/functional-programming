@@ -39,13 +39,13 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         myInterface3.accept(10, 20);
 
         /*****IMPLEMENTACION DE LA INTERFACE CALCULADORA USANDO DIFERENTES OPERACIONES*****/
-        ejecutarOperacion(((num11, num2) -> num11 + num2), 20, 10); //notar que no se está usando la palabra return
-        ejecutarOperacion(((num11, num2) -> num11 - num2), 20, 10);
-        ejecutarOperacion(((num11, num2) -> num11 / num2), 20, 10);
-        ejecutarOperacion(((num11, num2) -> num11 * num2), 20, 10);
+        calcularOperacion(((num11, num2) -> num11 + num2), 20, 10); //notar que no se está usando la palabra return
+        calcularOperacion(((num11, num2) -> num11 - num2), 20, 10);
+        calcularOperacion(((num11, num2) -> num11 / num2), 20, 10);
+        calcularOperacion(((num11, num2) -> num11 * num2), 20, 10);
     }
 
-    public static void ejecutarOperacion(Calculadora calculadora, int num1, int num2) {
+    public static void calcularOperacion(Calculadora calculadora, int num1, int num2) {
         int resultado = calculadora.calcular(num1, num2);
         System.out.println("Resultado de la operación: " + resultado);
     }
