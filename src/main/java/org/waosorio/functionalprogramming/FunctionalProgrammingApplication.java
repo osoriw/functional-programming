@@ -46,7 +46,7 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
     }
 
     public static void ejecutarOperacion(Calculadora calculadora, int num1, int num2) {
-        int resultado = calculadora.calcularOperacion(num1, num2);
+        int resultado = calculadora.calcular(num1, num2);
         System.out.println("Resultado de la operación: " + resultado);
     }
 
