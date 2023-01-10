@@ -3,6 +3,7 @@ package org.waosorio.functionalprogramming;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.waosorio.functionalprogramming.interfaces.MyInterface;
 
 @SpringBootApplication
 public class FunctionalProgrammingApplication implements CommandLineRunner {
