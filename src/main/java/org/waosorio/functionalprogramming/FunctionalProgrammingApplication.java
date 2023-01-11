@@ -27,11 +27,12 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         myInterface.accept();
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA*****/
+        //si en el cuerpo de la expresión lambda, se tiene sólo una línea de código, se pueden omitir los llaves
         myInterface = () -> System.out.println("My implementation with a lambda expression");
         myInterface.accept();
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA CON UN PARAMETRO*****/
-        MyInterface2 myInterface2 = param1 -> System.out.println("param1: " + param1);
+        MyInterface2 myInterface2 = param1 -> System.out.println("param1: " + param1); //con un sólo parámetro, se pueden omitir los paréntesis
         myInterface2.accept(10);
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA CON DOS PARAMETROS*****/
@@ -39,15 +40,15 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         myInterface3.accept(10, 20);
 
         /*****IMPLEMENTACION DE LA INTERFACE CALCULADORA USANDO DIFERENTES OPERACIONES*****/
-        calcularOperacion(((num11, num2) -> num11 + num2), 20, 10); //notar que no se está usando la palabra return
-        calcularOperacion(((num11, num2) -> num11 - num2), 20, 10);
-        calcularOperacion(((num11, num2) -> num11 / num2), 20, 10);
-        calcularOperacion(((num11, num2) -> num11 * num2), 20, 10);
+        calcularOperacion(((num1, num2) -> num1 + num2), 20, 10); //la palabra return se puede omitir
+        calcularOperacion(((num1, num2) -> num1 - num2), 20, 10);
+        calcularOperacion(((num1, num2) -> num1 / num2), 20, 10);
+        calcularOperacion(((num1, num2) -> num1 * num2), 20, 10);
     }
 
     public static void calcularOperacion(Calculadora calculadora, int num1, int num2) {
-        int resultado = calculadora.calcular(num1, num2);
-        System.out.println("Resultado de la operación: " + resultado);
+        System.out.println("Resultado de la operación: " + calculadora.calcular(num1, num2));
     }
+
 
 }
