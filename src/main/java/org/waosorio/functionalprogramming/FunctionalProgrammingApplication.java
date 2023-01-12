@@ -3,10 +3,7 @@ package org.waosorio.functionalprogramming;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.waosorio.functionalprogramming.interfaces.Calculadora;
-import org.waosorio.functionalprogramming.interfaces.MyInterface1;
-import org.waosorio.functionalprogramming.interfaces.MyInterface2;
-import org.waosorio.functionalprogramming.interfaces.MyInterface3;
+import org.waosorio.functionalprogramming.interfaces.*;
 
 @SpringBootApplication
 public class FunctionalProgrammingApplication implements CommandLineRunner {
@@ -26,13 +23,19 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         };
         myInterface.accept();
 
+        /**
+         * ANOTACIONES GENERALES ACERCA DE LA SINTAXIS DE UNA EXPRESION LAMBDA:
+         * - Si la expresión lambda tiene un sólo parámetro, se pueden omitir los paréntesis:
+         * - Si en el cuerpo de la expresión lambda, se tiene sólo una línea de código, se pueden omitir los llaves.
+         * - Si una interfaz funcional tiene retorno de método, este se puede omitir en la expresión lambda.
+         */
+
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA*****/
-        //si en el cuerpo de la expresión lambda, se tiene sólo una línea de código, se pueden omitir los llaves
         myInterface = () -> System.out.println("My implementation with a lambda expression");
         myInterface.accept();
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA CON UN PARAMETRO*****/
-        MyInterface2 myInterface2 = param1 -> System.out.println("param1: " + param1); //con un sólo parámetro, se pueden omitir los paréntesis
+        MyInterface2 myInterface2 = param1 -> System.out.println("param1: " + param1);
         myInterface2.accept(10);
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA CON DOS PARAMETROS*****/
@@ -44,11 +47,23 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         calcularOperacion(((num1, num2) -> num1 - num2), 20, 10);
         calcularOperacion(((num1, num2) -> num1 / num2), 20, 10);
         calcularOperacion(((num1, num2) -> num1 * num2), 20, 10);
+
+        /*****AMBIGUEDAD DE TIPO EN EXPRESIONES LAMBDA*****/
+        printer((PrinterStr) param -> System.out.println(param));
+        printer((PrinterInt) param -> System.out.println(param));
+
     }
 
     public static void calcularOperacion(Calculadora calculadora, int num1, int num2) {
         System.out.println("Resultado de la operación: " + calculadora.calcular(num1, num2));
     }
 
+    public static void printer(PrinterStr printerStr) {
+        printerStr.print("Hello World");
+    }
+
+    public static void printer(PrinterInt printerInt) {
+        printerInt.print(10);
+    }
 
 }
