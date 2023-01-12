@@ -27,7 +27,12 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
          * ANOTACIONES GENERALES ACERCA DE LA SINTAXIS DE UNA EXPRESION LAMBDA:
          * - Si la expresión lambda tiene un sólo parámetro, se pueden omitir los paréntesis:
          * - Si en el cuerpo de la expresión lambda, se tiene sólo una línea de código, se pueden omitir los llaves.
-         * - Si una interfaz funcional tiene retorno de método, este se puede omitir en la expresión lambda.
+         * - Si una interfaz funcional tiene retorno de método (return), este se puede omitir en el cuerpo de la expresión lambda.
+         * - Hay 4 contextos en los ue podemos usar una expresión lambda:
+         *  - Como asignación de una referencia.
+         *  - Como argumento de un método (el argumento se define como una expresión lambda).
+         *  - Como casting en una invocación (para resolver una ambiguedad de tipo).
+         *  - Como retorno de un método.
          */
 
         /*****IMPLEMENTACION DE UNA INTERFACE FUNCIONAL USANDO UNA EXPRESION LAMBDA*****/
@@ -49,8 +54,11 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         calcularOperacion(((num1, num2) -> num1 * num2), 20, 10);
 
         /*****AMBIGUEDAD DE TIPO EN EXPRESIONES LAMBDA*****/
-        printer((PrinterStr) param -> System.out.println(param));//se debe declarar explicitamente el tipo de dato del argumento para resolver la ambigüedad de tipo
-        printer((PrinterInt) param -> System.out.println(param));
+        printer((PrinterStr) param -> System.out.println("Imprimiendo el String: " + param));//se debe declarar explicitamente el tipo de interfaz del argumento para resolver la ambigüedad de tipo
+        printer((PrinterInt) param -> System.out.println("Imprimiendo el entero: " + param));
+
+        /*****EXPRESION LAMBDA COMO RETORNO DE METODO*****/
+        System.out.println("invocando método create de interface funcional Calculadora: " + create().calcular(5, 10));
 
     }
 
@@ -66,4 +74,7 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         printerInt.print(10);
     }
 
+    public static Calculadora create() {
+        return (x, y) -> x + y;
+    }
 }
