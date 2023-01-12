@@ -49,7 +49,7 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         calcularOperacion(((num1, num2) -> num1 * num2), 20, 10);
 
         /*****AMBIGUEDAD DE TIPO EN EXPRESIONES LAMBDA*****/
-        printer((PrinterStr) param -> System.out.println(param));
+        printer((PrinterStr) param -> System.out.println(param));//se debe declarar explicitamente el tipo de dato del argumento para resolver la ambigüedad de tipo
         printer((PrinterInt) param -> System.out.println(param));
 
     }
