@@ -23,8 +23,7 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
          * -Una interfaz funcional se puede anotar con @FunctionalInterface, esto es una buena práctica, ya que nos ayuda
          *  a identificar si la interfaz funcional que estamos anotando, cumple con los requerimientos para ser una interfaz funcional.
          * -Las interfaces funcionales que vienen por defecto a partir de la versión 8 de java, se encuentran en el paquete
-         *  java.util.function.
-         * -
+         *  java.util.function.         *
          */
 
     }
