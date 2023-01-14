@@ -12,6 +12,10 @@ public class TestFunction {
 
     public static void main(String[] args) {
         /*****INTERFAZ FUNCIONAL Function: Esta interfaz permite realizar transformaciones entre tipos de datos.*****/
+        /**
+         * La interfaz funcional Function. recibe un tipo de dato y lo transforma en otro tipo de dato, la transformación
+         * se hace según la implementación definida en la expresión lambda.
+         */
         Function<Integer, String> converter = param -> Integer.toString(param);
         System.out.println(converter.apply(100).length());
 
