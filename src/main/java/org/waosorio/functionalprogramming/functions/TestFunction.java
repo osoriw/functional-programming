@@ -55,7 +55,7 @@ public class TestFunction {
      *
      * @param listaComensales
      * @param function
-     * @return
+     * @return la lista de datos personalizados de comensales
      */
     private static List<Object> getDatosComensales(List<Comensal> listaComensales, Function<Comensal, Object> function) {
         List<Object> datosComensales = new ArrayList<>();
