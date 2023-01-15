@@ -27,7 +27,7 @@ public class EjercicioPredicate {
                 new Empleado("Damaris", 55, 3200000, "Gerencia")
         );
 
-        List<Empleado> salariosAltos = evaluate(empleados, empleado -> empleado.getSalario() > 2000000);
+        List<Empleado> salariosAltos = evaluarSalario(empleados, empleado -> empleado.getSalario() > 2000000);
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Empleados con salarios mayores a 2 millones:");
         for (Empleado empleado : salariosAltos) {
@@ -35,7 +35,7 @@ public class EjercicioPredicate {
         }
 
         //EJEMPLO 3: se filtran los empleados cn salario mayor a 2000000.
-        List<Empleado> empleadosMenores35 = evaluate(empleados, empleado -> empleado.getEdad() < 35);
+        List<Empleado> empleadosMenores35 = evaluarSalario(empleados, empleado -> empleado.getEdad() < 35);
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Empleados menores de 35 anios:");
         for (Empleado empleado : empleadosMenores35) {
@@ -54,7 +54,7 @@ public class EjercicioPredicate {
         }
     }
 
-    private static List<Empleado> evaluate(List<Empleado> empleados, Predicate<Empleado> pred) {
+    private static List<Empleado> evaluarSalario(List<Empleado> empleados, Predicate<Empleado> pred) {
         List<Empleado> listaNueva = new ArrayList<>();
 
         for (Empleado empleado : empleados) {
