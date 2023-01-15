@@ -42,7 +42,7 @@ public class EjercicioPredicate {
             System.out.println(empleado.getNombre() + ": " + empleado.getEdad());
         }
 
-        //EJEMPLO 3: incrementando el salario a los empleados menores de 35 años
+        //EJEMPLO 3: incrementando el salario a los empleados menores de 35 años (uso combinado de BiFunction y Predicate)
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Empleados con incremento salarial:");
         for (Empleado empleado : empleados) {
