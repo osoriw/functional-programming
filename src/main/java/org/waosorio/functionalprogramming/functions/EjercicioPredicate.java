@@ -11,8 +11,8 @@ import java.util.function.Predicate;
 public class EjercicioPredicate {
 
     public static void main(String[] args) {
-        /*****INTERFAZ FUNCIONAL Predicate: Esta interfaz recibe un argumento genérico y devuelve un valor booleano basado en la evaluación de un condición.*****/
-        //EJEMPLO 1: la expresión lambda recibe un entero y devuelve un TRUE o FALSE, dependiendo de si el valor es mayor o menos que cero
+        /*****INTERFAZ FUNCIONAL Predicate: Esta interfaz recibe un argumento genérico y devuelve TRUE o FALSE, basado en la evaluación de una condición booleana.*****/
+        //EJEMPLO 1: evalua si un entero es mayor o menor que cero.
         Predicate<Integer> predicate = x -> x > 0;
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println(predicate.test(1)); //su método abstracto se llama test.
