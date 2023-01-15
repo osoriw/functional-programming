@@ -42,6 +42,18 @@ public class EjercicioPredicate {
             System.out.println(empleado.getNombre() + ": " + empleado.getEdad());
         }
 
+        //EJEMPLO 3: incrementando el salario a los empleados menores de 35 años
+
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("Empleados con incremento salarial:");
+        for (Empleado empleado : empleadosMenores35) {
+            double nuevoSalario = incrementarSalario(empleado, 10, (salario, incremento) -> salario + (salario * incremento / 100));
+            empleado.setSalario(nuevoSalario);
+
+
+            System.out.println(empleado.getNombre() + " " + empleado.getSalario());
+        }
+
     }
 
     private static List<Empleado> evaluate(List<Empleado> empleados, Predicate<Empleado> pred) {
@@ -53,6 +65,10 @@ public class EjercicioPredicate {
             }
         }
         return listaNueva;
+    }
+
+    private static double incrementarSalario(Empleado empleado, double incremento, BiFunction<Double, Double, Double> bi) {
+        return bi.apply(empleado.getSalario(), incremento);
     }
 
 }
