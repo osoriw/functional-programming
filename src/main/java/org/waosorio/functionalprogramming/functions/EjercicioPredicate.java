@@ -34,7 +34,7 @@ public class EjercicioPredicate {
             System.out.println(empleado.getNombre() + ": " + empleado.getSalario());
         }
 
-        //EJEMPLO 2: se filtran los empleados cn salario mayor a 2000000.
+        //EJEMPLO 3: se filtran los empleados cn salario mayor a 2000000.
         List<Empleado> empleadosMenores35 = evaluate(empleados, empleado -> empleado.getEdad() < 35);
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Empleados menores de 35 anios:");
@@ -42,11 +42,10 @@ public class EjercicioPredicate {
             System.out.println(empleado.getNombre() + ": " + empleado.getEdad());
         }
 
-        //EJEMPLO 3: incrementando el salario a los empleados menores de 35 años (uso combinado de BiFunction y Predicate)
+        //EJEMPLO 4: incrementando el salario a los empleados menores de 35 años (uso combinado de BiFunction y Predicate)
         System.out.println("--------------------------------------------------------------------------------");
         System.out.println("Empleados con incremento salarial:");
         for (Empleado empleado : empleados) {
-
             if (evaluarEdad(empleado.getEdad(), edad -> edad < 35)) {
                 double nuevoSalario = incrementarSalario(empleado, 10, (salario, incremento) -> salario + (salario * incremento / 100));
                 empleado.setSalario(nuevoSalario);
