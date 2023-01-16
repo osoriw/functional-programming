@@ -44,7 +44,7 @@ public class EjercicioPredicate {
 
         //EJEMPLO 4: incrementando el salario a los empleados menores de 35 años (uso combinado de BiFunction y Predicate)
         System.out.println("--------------------------------------------------------------------------------");
-        System.out.println("Empleados con incremento salarial:");
+        System.out.println("Empleados menores de 36, con incremento salarial:");
         for (Empleado empleado : empleados) {
             if (evaluarEdad(empleado.getEdad(), edad -> edad < 35)) {
                 double nuevoSalario = incrementarSalario(empleado, 10, (salario, incremento) -> salario + (salario * incremento / 100));
@@ -52,6 +52,18 @@ public class EjercicioPredicate {
                 System.out.println(empleado.getNombre() + " " + empleado.getSalario());
             }
         }
+
+        //EJEMPLO 5: incrementando el salario a los empleados mayores de 35 años usando el operador negate() de la interfaz Predicate
+        System.out.println("--------------------------------------------------------------------------------");
+        System.out.println("Empleados mayores o iguales a 36, con incremento salarial:");
+        for (Empleado empleado : empleados) {
+            if (evaluarEdadAlContrario(empleado.getEdad(), edad -> edad < 36)) {
+                double nuevoSalario = incrementarSalario(empleado, 10, (salario, incremento) -> salario + (salario * incremento / 100));
+                empleado.setSalario(nuevoSalario);
+                System.out.println(empleado.getNombre() + " " + empleado.getSalario());
+            }
+        }
+
     }
 
     private static List<Empleado> evaluarSalario(List<Empleado> empleados, Predicate<Empleado> pred) {
@@ -71,6 +83,10 @@ public class EjercicioPredicate {
 
     private static boolean evaluarEdad(double edad, Predicate<Double> predicate) {
         return predicate.test(edad);
+    }
+
+    private static boolean evaluarEdadAlContrario(double edad, Predicate<Double> predicate) {
+        return predicate.negate().test(edad);
     }
 
 }
