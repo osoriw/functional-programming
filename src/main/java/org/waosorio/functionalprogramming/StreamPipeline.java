@@ -9,10 +9,11 @@ public class StreamPipeline {
         //Ejemplo de un Stream Pipeline
         List<Integer> enteros = Arrays.asList(1, 2, 3, 4, 5);
 
-        int suma = enteros.stream()              //origen de  datos
-                .filter(n -> n % 2 == 0)         //operación intermedia
-                .map(n -> n * n)                 //operación intermedia
-                .reduce(0, Integer::sum); //operación final
+        int suma = enteros.stream()                     //origen de  datos
+                .filter(n -> n % 2 == 0)                //operación intermedia
+                .map(n -> n * n)                        //operación intermedia
+                //.reduce(0, (n1, n2) -> n1 + n2);      //forma alternativa operación final.
+                .reduce(0, Integer::sum);        //operación final
 
         System.out.println("Suma de enteros pares: " + suma);
     }
