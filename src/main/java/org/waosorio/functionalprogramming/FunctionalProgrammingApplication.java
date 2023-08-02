@@ -60,6 +60,8 @@ public class FunctionalProgrammingApplication implements CommandLineRunner {
         /*****EXPRESION LAMBDA COMO RETORNO DE METODO*****/
         System.out.println("invocando método create de interface funcional Calculadora: " + create().calcular(5, 10));
 
+        Validador validador = ((num1, num2) -> { return (num1 > num2) ? true : false;});
+        System.out.println("Resultado de validación: " +  validador.validar(5, 8));
     }
 
     public static void calcularOperacion(Calculadora calculadora, int num1, int num2) {
